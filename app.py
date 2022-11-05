@@ -161,7 +161,7 @@ def display_image(filename):
         def predict(self):
             fig = plt.figure(figsize=(20, 20))
             for i, img in enumerate(self.batch_holder):
-                fig.add_subplot(5, 5, i + 1)
+                fig.add_subplot(1, 1, i + 1)
                 result = self.model.predict(self.batch_holder)
                 result_classes = result.argmax(axis=-1)
                 plt.title(self.label[result_classes[i]])
@@ -173,6 +173,7 @@ def display_image(filename):
                     labelbottom=False,
                     labelleft=False)
                 plt.imshow(img / 256.)
+                break
             plt.show()
 
     print('display_image filename: ' + filename)
